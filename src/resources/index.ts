@@ -1,6 +1,6 @@
-import { Social } from "@/components/footer/Social";
+// src/resources/index.ts
 
-// 1. CẤU HÌNH HỆ THỐNG (GIỮ NGUYÊN ĐỂ KHÔNG LỖI)
+// --- 1. CẤU HÌNH HỆ THỐNG (BẮT BUỘC ĐỂ KHÔNG LỖI BUILD) ---
 export const baseURL = 'https://eztool4teach.com'
 
 export const routes = {
@@ -8,10 +8,10 @@ export const routes = {
   '/about': true,
   '/work': true,
   '/blog': true,
-  '/gallery': false // Tạm tắt gallery cho gọn
+  '/gallery': false // Tắt gallery nếu chưa có ảnh
 }
 
-// Giữ nguyên để tránh lỗi Layout
+// Biến này bị thiếu gây lỗi Layout
 export const protectedRoutes = {} 
 
 export const effects = {
@@ -37,6 +37,12 @@ export const display = {
   time: true,
 }
 
+// Biến này bị thiếu gây lỗi Layout
+export const dataStyle = {
+  locale: 'vi-VN',
+  format: 'DD/MM/YYYY'
+}
+
 export const mailchimp = {
   action: 'https://url/subscribe/post?u=...',
   effects: {
@@ -47,10 +53,24 @@ export const mailchimp = {
   },
 }
 
-// 2. THÔNG TIN CÁ NHÂN (ĐÃ SỬA)
+// Biến này bị thiếu gây lỗi Mailchimp.tsx
+export const newsletter = {
+  display: true,
+  title: 'Đăng ký nhận tin',
+  description: 'Nhận thông báo khi có công cụ mới từ thầy Tùng'
+}
+
+// Biến này bị thiếu gây lỗi ShareSection.tsx
+export const socialSharing = [
+  'facebook',
+  'linkedin',
+  'twitter'
+]
+
+// --- 2. THÔNG TIN CÁ NHÂN (ĐÃ CÁ NHÂN HÓA) ---
 export const person = {
   name: 'Võ Ngọc Tùng',
-  avatar: '/images/avatar.jpg', // Bạn nhớ thay ảnh avatar.jpg vào thư mục public/images sau nhé
+  avatar: '/images/avatar.jpg', 
   role: 'Giáo viên & Developer',
   location: 'Vĩnh Long, VN',
   languages: ['Tiếng Việt', 'English'],
@@ -66,7 +86,7 @@ export const social = {
   phone: '0814666040',
 }
 
-// 3. TRANG CHỦ (ĐÃ SỬA)
+// --- 3. NỘI DUNG TRANG CHỦ ---
 export const home = {
   label: 'Trang chủ',
   title: 'Trung tâm công cụ dạy học EZ',
@@ -77,11 +97,11 @@ export const home = {
   featured: {
     display: true,
     title: 'Dự án Mới: EZ Slides',
-    href: 'https://app.eztool4teach.com', // Link về tool của bạn
+    href: 'https://app.eztool4teach.com',
   },
 }
 
-// 4. TRANG GIỚI THIỆU (ĐÃ SỬA)
+// --- 4. NỘI DUNG TRANG GIỚI THIỆU ---
 export const about = {
   label: 'Giới thiệu',
   title: 'Về tôi',
@@ -136,11 +156,6 @@ export const about = {
         title: 'Công nghệ',
         description: 'Word, Excel, PowerPoint, Web Design',
         images: []
-      },
-      {
-        title: 'Sư phạm',
-        description: 'Phương pháp dạy học tích cực',
-        images: []
       }
     ],
   },
@@ -162,7 +177,7 @@ export const about = {
   },
 }
 
-// 5. CÁC MỤC KHÁC (GIỮ ĐỂ KHÔNG LỖI)
+// --- 5. CÁC MỤC KHÁC (GIỮ NGUYÊN ĐỂ KHÔNG LỖI) ---
 export const blog = {
   label: 'Bài viết',
   title: 'Chia sẻ kinh nghiệm',
